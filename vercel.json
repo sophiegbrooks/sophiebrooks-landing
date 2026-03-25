@@ -1,12 +1,14 @@
 {
-    "rewrites": [
+    "redirects": [
       {
         "source": "/gather",
-        "destination": "https://gathertogether123.vercel.app/"
+        "destination": "https://gathertogether123.vercel.app/",
+        "permanent": false
       },
       {
         "source": "/gather/:path*",
-        "destination": "https://gathertogether123.vercel.app/:path*"
+        "destination": "https://gathertogether123.vercel.app/:path*",
+        "permanent": false
       }
     ]
   }
