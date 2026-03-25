@@ -1,6 +1,10 @@
 {
     "rewrites": [
       {
+        "source": "/gather",
+        "destination": "https://gathertogether123.vercel.app/"
+      },
+      {
         "source": "/gather/:path*",
         "destination": "https://gathertogether123.vercel.app/:path*"
       }
