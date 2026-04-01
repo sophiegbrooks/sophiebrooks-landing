@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sophie Brooks</title>
+  <meta name="description" content="Sophie Brooks — builder & creative strategist. Making things at the intersection of technology, design, and human connection." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand:    #f5f0e8;
+      --warm:    #ede7db;
+      --ink:     #1a1714;
+      --muted:   #7a7068;
+      --accent:  #c17f4a;
+      --accent2: #8b6f5e;
+      --green:   #4a7c59;
+      --rose:    #b85c5c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--sand);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(245, 240, 232, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(26, 23, 20, 0.06);
+    }
+
+    .nav-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 2.5rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent2);
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      background: var(--ink);
+      color: var(--sand);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary:hover {
+      background: #2e2924;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .btn-ghost:hover {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 40px;
+      background: currentColor;
+      opacity: 0.4;
+    }
+
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--warm);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(26, 23, 20, 0.07);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(26, 23, 20, 0.1);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .card-gather::before  { background: linear-gradient(90deg, #6b8f71, #4a7c59); }
+    .card-insync::before  { background: linear-gradient(90deg, #c17f4a, #b85c5c); }
+
+    .project-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag-app     { background: rgba(74, 124, 89, 0.12); color: var(--green); }
+    .tag-podcast { background: rgba(193, 127, 74, 0.12); color: var(--accent); }
+
+    .project-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26, 23, 20, 0.2);
+      padding-bottom: 0.1rem;
+      transition: border-color 0.2s, gap 0.2s;
+    }
+
+    .project-link:hover {
+      border-color: var(--ink);
+      gap: 0.6rem;
+    }
+
+    .project-status {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-right: 0.3rem;
+      vertical-align: middle;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding-top: 0.5rem;
+    }
+
+    .aside-item {
+      padding: 1.25rem 1.5rem;
+      background: var(--warm);
+      border-radius: 14px;
+      border: 1px solid rgba(26, 23, 20, 0.06);
+    }
+
+    .aside-item-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .aside-item-value {
+      font-size: 0.9rem;
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(26, 23, 20, 0.08);
+      padding: 2.5rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: rgba(26, 23, 20, 0.07);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+
+      .hero { padding: 6rem 1.25rem 3rem; }
+
+      section { padding: 4rem 1.25rem; }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      footer {
+        padding: 2rem 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      h1 { font-size: 2.75rem; }
+    }
+
+    /* ── FADE IN ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-name" href="#">Sophie Brooks</a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Sophie Brooks</div>
+      <h1>Builder &amp;<br><em>creative strategist</em></h1>
+      <p class="hero-sub">
+        I make things at the intersection of technology, design, and human connection —
+        from apps that bring people together to conversations worth having.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">See my work ↓</a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="btn-ghost">Instagram →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Work</div>
+    <h2 class="section-title">Things I've built</h2>
+
+    <div class="projects-grid">
+
+      <!-- Gather -->
+      <a href="https://gathersimply.app" target="_blank" rel="noopener" class="project-card card-gather fade-up">
+        <div class="project-tag tag-app">
+          <span class="project-status"></span>
+          Live app
+        </div>
+        <div class="project-name">Gather</div>
+        <p class="project-desc">
+          A group scheduling tool that cuts out the back-and-forth. Hosts propose dates and times,
+          participants mark their availability, and the best time surfaces automatically.
+          No sign-up required for guests.
+        </p>
+        <span class="project-link">gathersimply.app →</span>
+      </a>
+
+      <!-- In Sync -->
+      <a href="https://becominginsync.com" target="_blank" rel="noopener" class="project-card card-insync fade-up">
+        <div class="project-tag tag-podcast">Podcast</div>
+        <div class="project-name">In Sync</div>
+        <p class="project-desc">
+          Mind, Meaning & Movement — a podcast exploring the connection between how we think,
+          what drives us, and how we move through the world. I host, produce, and built the site.
+        </p>
+        <span class="project-link">becominginsync.com →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <h2 class="section-title">A bit about me</h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a <strong>builder and creative strategist</strong> who moves between product, design,
+          and the kind of thinking that connects dots other people miss.
+        </p>
+        <p>
+          Most of my work lives at the intersection of <strong>technology and human experience</strong> —
+          tools that actually fit the way people think, and conversations worth having.
+        </p>
+        <p>
+          When I'm not building, I'm probably deep in a research rabbit hole, working on In Sync,
+          or trying to figure out how to make something unnecessarily elegant.
+        </p>
+      </div>
+
+      <div class="about-aside">
+        <div class="aside-item">
+          <div class="aside-item-label">Currently building</div>
+          <div class="aside-item-value">Gather — group scheduling, simplified</div>
+        </div>
+        <div class="aside-item">
+          <div class="aside-item-label">Also working on</div>
+          <div class="aside-item-value">In Sync podcast</div>
+        </div>
+        <div class="aside-item">
+          <div class="aside-item-label">Interests</div>
+          <div class="aside-item-value">Product design, human behavior, movement, creative strategy</div>
+        </div>
+        <div class="aside-item">
+          <div class="aside-item-label">Get in touch</div>
+          <div class="aside-item-value">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">Instagram →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="divider"></div>
+  <footer>
+    <span class="footer-name">Sophie Brooks</span>
+    <div class="footer-links">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="https://gathersimply.app" target="_blank" rel="noopener">Gather</a>
+      <a href="https://becominginsync.com" target="_blank" rel="noopener">In Sync</a>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
+      { threshold: 0.1 }
+    )
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+  </script>
+
+</body>
+</html>
